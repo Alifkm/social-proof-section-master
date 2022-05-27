@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+$very-dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+$font-stack: 'League Spartan', sans-serif;;
+
+@mixin flexProperty($prop1, $prop2: "", $prop3: "", $prop4: "") {
+    display: $prop1;
+    align-items: unquote($prop2);
+    justify-content: unquote($prop3);
+    flex-direction: unquote($prop4);
+}
+
+@mixin textProperty($prop1, $prop2, $prop3) {
+    color: $prop1;
+    font-size: $prop2;
+    font-weight: $prop3;
+}

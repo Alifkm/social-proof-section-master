@@ -1,0 +1,232 @@
+@import 'config';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: $font-stack;
+    background-color: $white;
+
+    .container {
+        background-image: url('../images/bg-pattern-top-desktop.svg'), url('../images/bg-pattern-bottom-desktop.svg');
+        background-position: top, bottom;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover;
+        @include flexProperty(flex, center, center,column);
+        height: 100%;
+
+        .top-wrapper {
+            @include flexProperty(flex, center, center, null);
+
+            .top-left-wrapper {
+                width: 50%;
+                word-wrap: break-word;
+                padding-right: 170px;
+                
+                h1 {
+                    width: 450px;
+                    @include textProperty($very-dark-magenta, 56px, 700);
+                    margin-bottom: 20px;
+                }
+                p {
+                    width: 450px;
+                    @include textProperty($dark-grayish-magenta, 18px, 400);
+                    line-height: 1.3;
+                }
+            }
+
+            .top-right-wrapper {
+                width: 50%;
+
+                .rating-wrapper {
+                    @include flexProperty(flex, null, null, null);
+                    background-color: lighten( $soft-pink, 30%);
+                    padding: 20px;
+                    border-radius: 7px;
+                    width: 470px;
+
+                    img {
+                        padding: 0 5px 0 5px;
+                    }
+
+                    img:nth-child(5) {
+                        margin-right: 30px;
+                    }
+
+                    h2 {
+                        @include textProperty($very-dark-magenta, 18px, 700);
+                    }
+
+                }
+
+                .rating-wrapper:nth-child(1) {
+                    margin: 0 0 20px 50px;
+                }
+
+                .rating-wrapper:nth-child(2) {
+                    margin: 0 0 20px 100px;
+                }
+
+                .rating-wrapper:nth-child(3) {
+                    margin: 0 0 20px 150px;
+                }
+
+            }
+
+        }
+
+        .bottom-wrapper {
+            background-image: url('../images/bg-pattern-bottom-desktop.svg');
+            background-size: cover;
+            @include flexProperty(flex, center, center, null);
+
+            .card {
+                background-color: $very-dark-magenta;
+                width: 380px;
+                height: max-content;
+                padding: 40px 30px 40px 30px;
+                border-radius: 7px;
+
+                div {
+                    @include flexProperty(flex, null, null, null);
+                    margin-bottom: 20px;
+
+                    h3 {
+                        @include textProperty($light-grayish-magenta, 18px, 700);
+                        letter-spacing: 1px;
+                        line-height: 1.2;
+
+                        span {
+                            @include textProperty($soft-pink, 18px, 400);    
+                        }
+                    }
+                
+                    img {
+                        border-radius: 50%;
+                        width: 40px;
+                        margin-right: 20px;
+                    }
+                }
+
+                p {
+                    @include textProperty($light-grayish-magenta, 18px, 400);
+                    line-height: 1.3;
+                }
+
+                
+            }
+
+            .first-card {
+                margin: 0 0 0 0;
+            }
+
+            .second-card {
+                margin: 50px 50px 0 50px;
+            }
+
+            .third-card {
+                margin: 100px 0 0 0;
+            }
+
+        }
+
+        @media only screen and (max-width:1249px) {
+            
+            height: max-content;
+            margin: 100px 0 100px 0;
+
+            .top-wrapper {
+                flex-direction: column;
+                margin-bottom: 20px;
+
+                .top-left-wrapper {
+                    @include flexProperty(flex, null, null, column);
+                    width: 100%;
+                    padding-right: 0;
+                    margin-bottom: 50px;
+
+                    h1, p {
+                        text-align: center;
+                        width: 500px;
+                    }
+                }
+
+                .top-right-wrapper {
+                    @include flexProperty(flex, null, null, column);
+                    width: 470px;
+
+                    .rating-wrapper {
+                        width: 100px;
+                        justify-content: center;
+                    }
+    
+                    .rating-wrapper:nth-child(1), .rating-wrapper:nth-child(2), .rating-wrapper:nth-child(3){
+                        width: 100%;
+                        margin: 0 0 20px 0;
+                    }
+                }
+            }
+
+            .bottom-wrapper {
+                flex-direction: column;
+
+                .first-card, .second-card, .third-card {
+                    margin: 0 0 20px 0;
+                }
+            }
+        }
+
+        @media only screen and (max-width:560px) {
+
+            .top-wrapper {
+
+                .top-left-wrapper {
+                    align-items: center;
+
+                    h1, p {
+                        text-align: center;
+                        width: 350px;
+                    }
+                }
+
+                .top-right-wrapper {
+                    width: 350px;
+
+                    .rating-wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        img {
+                            margin-bottom: 10px;
+                        }
+
+                        img:nth-child(1) {
+                            padding-left: 20px;
+                        }
+                        
+                        img:nth-child(5) {
+                           padding-right: 2px0;
+                        }
+
+                        h2 {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            .bottom-wrapper {
+
+                .card {
+                    width: 350px;
+                    padding: 30px 20px 30px 20px;
+                }
+            }
+        }
+
+    }
+}
